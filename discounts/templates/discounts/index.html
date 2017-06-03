@@ -1,0 +1,8 @@
+Youre in INDEX
+
+  {% for price_rule in price_rule_list.price_rules %}
+  <ul>
+      <li><a href="{% url 'discounts:detail' price_rule.id %}">{{ price_rule.title}}</a></li>
+      <li>{{ price_rule.id }}</li>
+  </ul>
+  {% endfor %}
