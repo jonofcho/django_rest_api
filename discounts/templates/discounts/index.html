@@ -6,3 +6,8 @@ Youre in INDEX
       <li>{{ price_rule.id }}</li>
   </ul>
   {% endfor %}
+
+  <a href="{% url 'discounts:new_pr' %}">Create New Price Rule</a>
+  <a href="{% url 'discounts:new_dc' %}">Create New Discount Code</a>
+
+  {{success}}
