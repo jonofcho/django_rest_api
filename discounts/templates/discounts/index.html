@@ -4,6 +4,8 @@ Youre in INDEX
   <ul>
       <li><a href="{% url 'discounts:detail' price_rule.id %}">{{ price_rule.title}}</a></li>
       <li>{{ price_rule.id }}</li>
+      <li><a href="{% url 'discounts:update_pr' price_rule.id %}">Update This Price Rule</a></li>
+      <li><a href="{% url 'discounts:delete_pr' price_rule.id %}">Delete this Price Rule</a></li>
   </ul>
   {% endfor %}
 

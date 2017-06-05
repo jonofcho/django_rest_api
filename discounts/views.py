@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from discounts import services
-from .forms import PriceRuleForm
+from .forms import PriceRuleForm , PriceRuleUpdateForm
 # Create your views here.
 
 def index(request):
@@ -29,6 +29,27 @@ def new_pr(request):
     else:
         form = PriceRuleForm()
     return render(request , 'discounts/new_pr.html', { 'form' : form })
+
+def update_pr(request , price_rule_id):
+    if request.method == "post":
+        form = PriceRuleUpdateForm(request.PUT)
+        if form.is_valid():
+            print('form is valid')
+            updated_price_rule = services.update_price_rule(form.cleaned_data)
+            services.post_update_price_rule(updated_price_rule , price_rule_id)
+            return render(request , 'discounts/index.html')
+        else:
+            print('form is invalid')
+    else:
+        print('request is not put')
+        form = PriceRuleUpdateForm()
+    return render(request , 'discounts/update_pr.html', { 'form': form })
+
+def delete_pr(request , price_rule_id):
+    context = {
+        'price_rule_id' : price_rule_id
+    }
+    return render(request , 'discounts/delete_pr.html', context)
 
 def new_dc(request):
 
