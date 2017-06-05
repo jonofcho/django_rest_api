@@ -1,9 +1,9 @@
 import requests
 import json
 from .objects import PriceRule
-pr_url = "https://cc56bd88237c966d8b9c0535309ff6c0:8ffa8234118f87d0bd88cf40e6ea1c0a@cube-and-dice.myshopify.com/admin/price_rules.json"
-dc_url = "https://cc56bd88237c966d8b9c0535309ff6c0:8ffa8234118f87d0bd88cf40e6ea1c0a@cube-and-dice.myshopify.com/admin/price_rules/%s/discount_codes.json"
-pr_update_url = "https://cc56bd88237c966d8b9c0535309ff6c0:8ffa8234118f87d0bd88cf40e6ea1c0a@cube-and-dice.myshopify.com/admin/price_rules/%s.json"
+pr_url = "@cube-and-dice.myshopify.com/admin/price_rules.json"
+dc_url = "@cube-and-dice.myshopify.com/admin/price_rules/%s/discount_codes.json"
+pr_update_url = "@cube-and-dice.myshopify.com/admin/price_rules/%s.json"
 def get_price_rules():
     url = pr_url
     # params = {'id': id, 'value': value}
