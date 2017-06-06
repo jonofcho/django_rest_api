@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/"></a></h1>
+        </div>
+
+        <div class="content container">
+            <div class="row">
+              {% block content %}
+
+              {% endblock %}
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#id_entitled_product_ids').parent().append('<p class="extra-id">ADD EXTRA+</p>')
+                $('.extra-id').on('click', function(){
+                    $(this).parent().append('<p><input type="number" name="entitled_products_ids" id="id_entitled_product_ids"></p>')
+                })
+            })
+        </script>
+    </body>
+</html>

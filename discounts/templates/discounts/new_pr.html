@@ -1,8 +1,12 @@
-Create a new Price Rule
+{% extends 'discounts/base.html' %}
 
-
-<form method="POST">
-  {% csrf_token %}
-  {{form.as_p}}
-  <input type="submit" name="" value="Create  ">
-</form>
+{% block content %}
+  Create a new Price Rule
+  Currently, if target_type is shipping_line, then only each is accepted.
+  <p>Prerequisite shipping cost range. Can only be used when target_type is shipping_line</p>
+  <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="" value="Create  ">
+  </form>
+{% endblock%}
