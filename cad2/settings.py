@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pricerules.apps.PricerulesConfig',
     'discounts.apps.DiscountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

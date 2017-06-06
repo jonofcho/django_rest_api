@@ -1,4 +1,4 @@
-{% extends 'discounts/base.html' %}
+{% extends 'base.html' %}
 Youre in INDEX
 {% block content %}
   {% for price_rule in price_rule_list.price_rules %}
@@ -6,6 +6,7 @@ Youre in INDEX
       <li><a href="{% url 'discounts:detail' price_rule.id %}">{{ price_rule.title}}</a></li>
       <li>{{ price_rule.id }}</li>
       <li><a href="{% url 'discounts:update_pr' price_rule.id %}">Update This Price Rule</a></li>
+      <li><a href="{% url 'discounts:delete_pr' price_rule.id %}">Delete Price Rule</a></li>
   </ul>
   {% endfor %}
 
