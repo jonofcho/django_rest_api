@@ -15,9 +15,7 @@ def get_discounts(price_rule_id):
     return discount_codes
 
 def create_discount_code(post):
-    print(post)
     discount_code = Discount(post)
-
     c = {
         'discount_code' : discount_code
     }
@@ -26,3 +24,4 @@ def create_discount_code(post):
 def post_discount_code(price_rule_id , discount_code):
     url = dc_new_url % (price_rule_id)
     r = requests.post(url , data=discount_code, headers=jsonheaders)
+    print(r.text)

@@ -14,7 +14,7 @@ class PriceRuleForm(forms.Form):
     # prerequisite_Subtotal_range = forms.IntegerField
     # prerequisite_shipping_price_range =
     # prerequisite_saved_search_ids
-    entitled_product_ids = forms.MultiValueField(label="product ids []", required=False)
+    entitled_product_ids = forms.IntegerField(label="product ids []", required=False)
     entitled_variant_ids = forms.IntegerField(label="variant ids []", required=False)
     entitled_collection_ids = forms.IntegerField(label="collection ids []", required=False)
     entitled_country_ids = forms.IntegerField(label="country Ids []", required=False)

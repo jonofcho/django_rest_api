@@ -3,8 +3,6 @@ from discounts import services
 from .forms import *
 # Create your views here.
 
-
-
 def detail(request , price_rule_id):
     discounts_list = services.get_discounts(price_rule_id)
     print(discounts_list)
@@ -21,7 +19,7 @@ def create(request, price_rule_id):
             # print(form.cleaned_data)
             new_discount_code = services.create_discount_code(form.cleaned_data)
             services.post_discount_code(price_rule_id , new_discount_code)
-            return render(request, 'discounts/index.html')
+            return render(request, 'discounts/detail.html', {'price_rule_id' : price_rule_id})
     else:
         form = DiscountForm()
-    return render(request , 'discounts/new_dc.html', { 'form' : form })
+    return render(request , 'discounts/create.html', { 'form' : form })
