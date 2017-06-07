@@ -19,6 +19,7 @@ def create(request, price_rule_id):
             # print(form.cleaned_data)
             new_discount_code = services.create_discount_code(form.cleaned_data)
             services.post_discount_code(price_rule_id , new_discount_code)
+
             return render(request, 'discounts/detail.html', {'price_rule_id' : price_rule_id})
     else:
         form = DiscountForm()

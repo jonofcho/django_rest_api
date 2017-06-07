@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
   Create a new Price Rule
   Currently, if target_type is shipping_line, then only each is accepted.
   <p>Prerequisite shipping cost range. Can only be used when target_type is shipping_line</p>
@@ -9,4 +10,11 @@
     {{form.as_p}}
     <input type="submit" name="" value="Create  ">
   </form>
+  {% for product in products_list.products %}
+  <ul>
+    {% for variant in product.variants %}
+      <li class="variant-id">{{variant.id}}</li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
 {% endblock%}

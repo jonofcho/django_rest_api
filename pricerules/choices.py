@@ -1,3 +1,17 @@
+from pricerules import services
+import json
+
+products_list = services.get_products()
+
+# )
+# create product choices
+PRODUCT_CHOICES = (
+    ("line_item", ("Line Item")),
+    ("shipping_line", ("Shipping Line"))
+)
+
+
+
 TARGET_TYPE_CHOICES = (
     ("line_item", ("Line Item")),
     ("shipping_line", ("Shipping Line"))
