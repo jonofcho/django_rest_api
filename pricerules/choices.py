@@ -1,16 +1,19 @@
 from pricerules import services
 import json
+from pprint import pprint
 
 products_list = services.get_products()
 
+
 # )
 # create product choices
-PRODUCT_CHOICES = (
-    ("line_item", ("Line Item")),
-    ("shipping_line", ("Shipping Line"))
-)
+#PRODUCT_CHOICES = (
+#    ("line_item", ("Line Item")),
+#    ("shipping_line", ("Shipping Line"))
+#)
 
-
+PRODUCT_CHOICES = [ product.get('id') for product in products_list.get('products') ]
+pprint(PRODUCT_CHOICES)
 
 TARGET_TYPE_CHOICES = (
     ("line_item", ("Line Item")),
