@@ -1,5 +1,9 @@
 from django import forms
 from .choices import *
+from functools import partial
+from datetimewidget.widgets import DateTimeWidget
+DateInput = partial(forms.DateInput, {'class': 'datepicker'})
+
 class PriceRuleForm(forms.Form):
 
     title = forms.CharField(label="title", max_length = 50)
@@ -14,9 +18,9 @@ class PriceRuleForm(forms.Form):
     # prerequisite_Subtotal_range = forms.IntegerField
     # prerequisite_shipping_price_range =
     # prerequisite_saved_search_ids
-    entitled_product_ids = forms.IntegerField(label="product ids []", required=False)
-    entitled_variant_ids = forms.MultipleChoiceField(label="variant ids []", required=False)
+    entitled_product_ids = forms.MultipleChoiceField(choices = PRODUCT_CHOICES, label="product ids []", required=False, widget=forms.CheckboxSelectMultiple)
+    entitled_variant_ids = forms.MultipleChoiceField(choices = VARIANT_CHOICES, label="variant ids []", required=False, widget=forms.CheckboxSelectMultiple)
     entitled_collection_ids = forms.IntegerField(label="collection ids []", required=False)
     entitled_country_ids = forms.IntegerField(label="country Ids []", required=False)
-    # starts_at = forms.DateTimeField(label="Start Time/DAte *required" input_formats=['%d/%m/%Y %H:%M:%S'], widget=forms.DateTimeInput(format='%d/%m/%Y %H:%M:%S'))
-    # ends_at = forms.DateTimeField(label="End Time/DAte *required" input_formats=['%d/%m/%Y %H:%M:%S'], widget=forms.DateTimeInput(format='%d/%m/%Y %H:%M:%S'))
+    starts_at = forms.SplitDateTimeField(widget=forms.DateTimeInput(attrs={'class': 'datetimepicker'}),required=False)
+    ends_at = forms.SplitDateTimeField(widget=forms.DateTimeInput(attrs={'class': 'datetimepicker'}),required=False)

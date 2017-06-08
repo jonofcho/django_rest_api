@@ -15,18 +15,18 @@ def index(request):
 def create(request):
     if request.method == "POST":
         form = PriceRuleForm(request.POST)
+
         if form.is_valid():
             print(form.cleaned_data)
             new_price_rule = services.create_price_rule(form.cleaned_data)
             services.post_price_rule(new_price_rule)
             return render(request, 'pricerules/index.html')
+        else:
+            print('didnt work')
     else:
         form = PriceRuleForm()
-        context = {
-            'products_list' : products_list,
-            'form' : form
-        }
-    return render(request , 'pricerules/create.html', context)
+
+    return render(request , 'pricerules/create.html', {'form' : form})
 
 def update(request , price_rule_id):
     if request.method == "POST":
@@ -37,6 +37,7 @@ def update(request , price_rule_id):
             services.post_update_price_rule(updated_price_rule , price_rule_id)
             return render(request , 'pricerules/index.html')
         else:
+            print(form.cleaned_data)
             print('form is invalid')
     else:
         print('request is not put')

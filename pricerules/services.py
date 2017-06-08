@@ -1,9 +1,9 @@
 import requests
 import json
 from .objects import *
-all_products = "https://eac627f1da25d65f926d6fdd74e287a0:c8c7213be9e11fb402507e41e8be153b@cube-and-dice.myshopify.com/admin/products.json?fields=variants,id"
-pr_url = "https://eac627f1da25d65f926d6fdd74e287a0:c8c7213be9e11fb402507e41e8be153b@cube-and-dice.myshopify.com/admin/price_rules.json"
-pr_update_url = "https://eac627f1da25d65f926d6fdd74e287a0:c8c7213be9e11fb402507e41e8be153b@cube-and-dice.myshopify.com/admin/price_rules/%s.json"
+all_products = "https://cube-and-dice.myshopify.com/admin/products.json?fields=variants,id,sku,title"
+pr_url = "https://cube-and-dice.myshopify.com/admin/price_rules.json"
+pr_update_url = "https://cube-and-dice.myshopify.com/admin/price_rules/%s.json"
 jsonheaders = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 # GET ATLL SHOPIFY PRODUCTDS
 def get_products():

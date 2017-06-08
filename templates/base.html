@@ -1,9 +1,11 @@
 <html>
     <head>
         <title></title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/jquery.datetimepicker.min.css">
     </head>
+
     <body>
         <div class="page-header">
             <h1><a href="/"></a></h1>
@@ -16,14 +18,11 @@
               {% endblock %}
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('#id_entitled_product_ids').parent().append('<p class="extra-id">ADD EXTRA+</p>')
-                $('.extra-id').on('click', function(){
-                    $(this).parent().append('<p><input type="number" name="entitled_products_ids" id="id_entitled_product_ids"></p>')
-                })
-            })
+            $.datetimepicker.setLocale('en');
+            $('.datetimepicker').datetimepicker({
+               format: 'Y/m/d H:i',
+            });
         </script>
     </body>
 </html>

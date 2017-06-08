@@ -28,4 +28,4 @@ class PriceRule(object):
         self.once_per_customer = post['once_per_customer']
         self.usage_limit = post['usage_limit']
         self.customer_selection = post['customer_selection']
-        self.starts_at =  '2017-06-06T02:33:48Z'
+        self.starts_at = post['starts_at']
