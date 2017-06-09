@@ -7,68 +7,69 @@
   <p>Prerequisite shipping cost range. Can only be used when target_type is shipping_line</p>
   <form method="POST">
     {% csrf_token %}
-    <div class="form-wrap">
-      <label for="">title</label>
-      {{form.title}}
-    </div>
-    <div class="form-wrap">
-      <label for="">target_type</label>
-      {{form.target_type}}
-    </div>
-    <div class="form-wrap">
-      <label for="">target_selection</label>
-      {{form.target_selection}}
-    </div>
-    <div class="form-wrap">
-      <label for="">allocation_method</label>
-      {{form.allocation_method}}
-    </div>
-    <div class="form-wrap">
-      <label for="">value_type</label>
-      {{form.value_type}}
-    </div>
-    <div class="form-wrap">
-      <label for="">value</label>
-      {{form.value}}
-    </div>
-    <div class="form-wrap">
-      <label for="">once_per_customer</label>
-      {{form.once_per_customer}}
-    </div>
-    <div class="form-wrap">
-      <label for="">usage_limit</label>
-      {{form.usage_limit}}
-    </div>
-    <div class="form-wrap">
-      <label for="">customer_selection</label>
-      {{form.customer_selection}}
-    </div>
-    <div class="form-wrap">
-      <label for="">entitled_product_ids</label>
-      {{form.entitled_product_ids}}
-    </div>
-    <div class="form-wrap">
-      <label for="">entitled_variant_ids</label>
-      {{form.entitled_variant_ids}}
-    </div>
-    <div class="form-wrap">
-      <label for="">entitled_collection_ids</label>
-      {{form.entitled_collection_ids}}
-    </div>
-    <div class="form-wrap">
-      <label for="">entitled_country_ids</label>
-      {{form.entitled_country_ids}}
-    </div>
-    <div class="form-wrap">
-      <label for="">starts</label>
-      {{form.starts_at  }}
-    </div>
-    <div class="form-wrap">
-      <label for="">ends_at</label>
-      {{form.ends_at }}
-    </div>
+    {{form.as_p}}
+
 
     <input type="submit" name="" value="Create  ">
   </form>
-
 {% endblock%}
+{# <div class="form-wrap">
+  <label for="">title</label>
+  {{form.title}}
+</div>
+<div class="form-wrap">
+  <label for="">target_type</label>
+  {{form.target_type}}
+</div>
+<div class="form-wrap">
+  <label for="">target_selection</label>
+  {{form.target_selection}}
+</div>
+<div class="form-wrap">
+  <label for="">allocation_method</label>
+  {{form.allocation_method}}
+</div>
+<div class="form-wrap">
+  <label for="">value_type</label>
+  {{form.value_type}}
+</div>
+<div class="form-wrap">
+  <label for="">value</label>
+  {{form.value}}
+</div>
+<div class="form-wrap">
+  <label for="">once_per_customer</label>
+  {{form.once_per_customer}}
+</div>
+<div class="form-wrap">
+  <label for="">usage_limit</label>
+  {{form.usage_limit}}
+</div>
+<div class="form-wrap">
+  <label for="">customer_selection</label>
+  {{form.customer_selection}}
+</div>
+<div class="form-wrap">
+  <label for="">entitled_product_ids</label>
+  {{form.entitled_product_ids}}
+</div>
+<div class="form-wrap">
+  <label for="">entitled_variant_ids</label>
+  {{form.entitled_variant_ids}}
+</div>
+<div class="form-wrap">
+  <label for="">entitled_collection_ids</label>
+  {{form.entitled_collection_ids}}
+</div>
+<div class="form-wrap">
+  <label for="">entitled_country_ids</label>
+  {{form.entitled_country_ids}}
+</div>
+<div class="form-wrap">
+  <label for="">starts</label>
+  {{form.starts_at  }}
+</div>
+<div class="form-wrap">
+  <label for="">ends_at</label>
+  {{form.ends_at }}
+</div>#}

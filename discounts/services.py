@@ -1,9 +1,10 @@
 import requests
 import json
 from .objects import *
+from passwords import KEYPASS
 
-dc_url = "https://eac627f1da25d65f926d6fdd74e287a0:c8c7213be9e11fb402507e41e8be153b@cube-and-dice.myshopify.com/admin/price_rules/%s/discount_codes.json"
-dc_new_url = "https://eac627f1da25d65f926d6fdd74e287a0:c8c7213be9e11fb402507e41e8be153b@cube-and-dice.myshopify.com/admin/price_rules/%s/discount_codes.json"
+dc_url = KEYPASS + "@cube-and-dice.myshopify.com/admin/price_rules/%s/discount_codes.json"
+dc_new_url = KEYPASS +"@cube-and-dice.myshopify.com/admin/price_rules/%s/discount_codes.json"
 jsonheaders = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
 

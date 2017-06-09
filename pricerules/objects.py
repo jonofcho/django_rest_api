@@ -1,5 +1,6 @@
+import pytz
 class PriceRule(object):
-    print(object)
+    # print(object)
     title = "string"
     target_type = "line_item"
     target_selection =  "all"
@@ -16,7 +17,9 @@ class PriceRule(object):
     # entitled_variant_ids =  []
     # entitled_collection_ids =  []
     # entitled_country_ids =  []
-    starts_at =  '2017-06-04T02 = 33 = 48Z'
+    starts_at =  ''
+    ends_at =  ''
+
 
     def __init__(self , post):
         self.title = post['title']
@@ -27,5 +30,6 @@ class PriceRule(object):
         self.value =  post['value']
         self.once_per_customer = post['once_per_customer']
         self.usage_limit = post['usage_limit']
-        self.customer_selection = post['customer_selection']
-        self.starts_at = post['starts_at']
+        # self.customer_selection = post['customer_selection']
+        self.starts_at = post['starts_at'].isoformat()
+        self.ends_at = post['ends_at'].isoformat()

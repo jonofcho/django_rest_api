@@ -19,6 +19,7 @@ def create(request):
         if form.is_valid():
             print(form.cleaned_data)
             new_price_rule = services.create_price_rule(form.cleaned_data)
+            print(new_price_rule)
             services.post_price_rule(new_price_rule)
             return render(request, 'pricerules/index.html')
         else:
