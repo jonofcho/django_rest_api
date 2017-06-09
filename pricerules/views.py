@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from pricerules import services
 from .forms import *
+from django.contrib.auth.decorators import login_required
 import json
+
+@login_required
 # Create your views here.
 def index(request):
     price_rule_list = services.get_price_rules()

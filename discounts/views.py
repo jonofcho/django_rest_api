@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from discounts import services
 from .forms import *
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
 def detail(request , price_rule_id):
     discounts_list = services.get_discounts(price_rule_id)
     print(discounts_list)
