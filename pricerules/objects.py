@@ -20,7 +20,6 @@ class PriceRule(object):
     starts_at =  ''
     ends_at =  ''
 
-
     def __init__(self , post):
         self.title = post['title']
         self.target_type = post['target_type']
@@ -30,6 +29,6 @@ class PriceRule(object):
         self.value =  post['value']
         self.once_per_customer = post['once_per_customer']
         self.usage_limit = post['usage_limit']
-        # self.customer_selection = post['customer_selection']
+        self.customer_selection = post['customer_selection']
         self.starts_at = post['starts_at'].isoformat()
         self.ends_at = post['ends_at'].isoformat()

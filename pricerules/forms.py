@@ -15,7 +15,7 @@ class PriceRuleForm(forms.Form):
     value = forms.IntegerField(label="Value")
     once_per_customer = forms.ChoiceField(choices = ONCE_PER_CUSTOMER_CHOICES, label = "once per customer?")
     usage_limit = forms.IntegerField(label="Usage Limit")
-    # customer_selection = forms.ChoiceField(choices = CUSTOMER_SELECTION_CHOICES, label ="Customer Selection")
+    customer_selection = forms.ChoiceField(choices = CUSTOMER_SELECTION_CHOICES, label ="Customer Selection")
     # prerequisite_Subtotal_range = forms.IntegerField
     # prerequisite_shipping_price_range =
     # prerequisite_saved_search_ids

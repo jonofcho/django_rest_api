@@ -2,6 +2,7 @@ from django.shortcuts import render
 from discounts import services
 from .forms import *
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 @login_required
@@ -20,8 +21,7 @@ def create(request, price_rule_id):
         if form.is_valid():
             # print(form.cleaned_data)
             new_discount_code = services.create_discount_code(form.cleaned_data)
-            services.post_discount_code(price_rule_id , new_discount_code)
-
+            services.post_discount_code(new_discount_code, price_rule_id)
             return render(request, 'discounts/detail.html', {'price_rule_id' : price_rule_id})
     else:
         form = DiscountForm()
