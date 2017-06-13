@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^pricerules/', include('pricerules.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^pr_api/', include('api_requests.urls')),
 ]

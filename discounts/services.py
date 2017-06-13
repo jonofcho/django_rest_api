@@ -22,7 +22,8 @@ def create_discount_code(post):
     }
     return json.dumps(c , default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
-def post_discount_code(price_rule_id , discount_code):
+def post_discount_code(discount_code, price_rule_id ):
     url = dc_new_url % (price_rule_id)
+    print(url)
     r = requests.post(url , data=discount_code, headers=jsonheaders)
     print(r.text)
