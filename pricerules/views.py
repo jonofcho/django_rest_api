@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from pricerules import services
 from .forms import *
 from django.contrib.auth.decorators import login_required
@@ -23,8 +25,8 @@ def create(request):
             print(form.cleaned_data)
             new_price_rule = services.create_price_rule(form.cleaned_data)
             print(new_price_rule)
-            services.post_price_rule(new_price_rule)
-            return render(request, 'pricerules/index.html')
+            new_price_rule_id = services.post_price_rule(new_price_rule)
+            return HttpResponseRedirect(reverse('discounts:detail' , args=(new_price_rule_id,)))
         else:
             print('didnt work')
     else:
@@ -45,11 +47,13 @@ def update(request , price_rule_id):
             print('form is invalid')
     else:
         print('request is not put')
-        form = PriceRuleForm()
+        price_rule = services.get_single_price_rule(price_rule_id)
+
+        form = PriceRuleForm(price_rule.get('price_rule'))
     return render(request , 'pricerules/update.html', { 'form': form })
 
 def delete(request , price_rule_id):
     # ASK USER TO PROVIDE LOG IN CREDENTIALS
     print(price_rule_id)
     services.post_delete_price_rule(price_rule_id)
-    return render(request , 'pricerules/index.html')
+    return HttpResponseRedirect(reverse('pricerules:index'))

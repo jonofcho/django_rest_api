@@ -25,6 +25,11 @@ def get_price_rules():
     # books_list = {'books':books['results']}
     return price_rules
 
+def get_single_price_rule(price_rule_id):
+    url = pr_update_url % (price_rule_id)
+    r = requests.get(url)
+    price_rule = r.json()
+    return price_rule
 # OBJECTIFY/JSONIFY ALL FORM DATA
 def create_price_rule(post):
     price_rule = PriceRule(post)
@@ -45,6 +50,9 @@ def post_price_rule(price_rule):
     url = pr_url
     r = requests.post(url , data=price_rule, headers=jsonheaders)
     print(r.text)
+    new_price_rule_id = r.json().get('price_rule').get('id')
+    return new_price_rule_id
+
 def post_update_price_rule(price_rule , price_rule_id):
     url = pr_update_url % (price_rule_id)
     r = requests.put(url , data=price_rule , headers=jsonheaders)
