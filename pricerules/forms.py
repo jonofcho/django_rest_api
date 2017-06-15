@@ -6,7 +6,8 @@ import datetime
 DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 
 class PriceRuleForm(forms.Form):
-
+    starts_at = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class': 'datetimepicker'}))
+    ends_at = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class': 'datetimepicker'}))
     title = forms.CharField(label="title", max_length = 50)
     target_type = forms.ChoiceField(choices = TARGET_TYPE_CHOICES, label="target type")
     target_selection = forms.ChoiceField(choices = TARGET_SELECTION_CHOICES, label="target selection")
@@ -19,12 +20,10 @@ class PriceRuleForm(forms.Form):
     # prerequisite_Subtotal_range = forms.IntegerField
     # prerequisite_shipping_price_range =
     # prerequisite_saved_search_ids
-    entitled_product_ids = forms.MultipleChoiceField(choices = PRODUCT_CHOICES, label="product ids []", required=False, widget=forms.CheckboxSelectMultiple)
-    entitled_variant_ids = forms.MultipleChoiceField(choices = VARIANT_CHOICES, label="variant ids []", required=False, widget=forms.CheckboxSelectMultiple)
-    entitled_collection_ids = forms.IntegerField(label="collection ids []", required=False)
-    entitled_country_ids = forms.IntegerField(label="country Ids []", required=False)
-    starts_at = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class': 'datetimepicker'}))
-    ends_at = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class': 'datetimepicker'}))
+    # entitled_product_ids = forms.MultipleChoiceField(choices = PRODUCT_CHOICES, label="product ids []", required=False, widget=forms.CheckboxSelectMultiple)
+    entitled_variant_ids = forms.MultipleChoiceField(label="Variant ID's",choices = VARIANT_CHOICES, required=False, widget=forms.CheckboxSelectMultiple)
+    # entitled_collection_ids = forms.IntegerField(label="collection ids []", required=False)
+    # entitled_country_ids = forms.IntegerField(label="country Ids []", required=False)
 
     def clean(self):
         form_data = self.cleaned_data

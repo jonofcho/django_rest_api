@@ -1,17 +1,82 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'pricerules/create.css' %}" />
 
   Create a new Price Rule
   Currently, if target_type is shipping_line, then only each is accepted.
   <p>Prerequisite shipping cost range. Can only be used when target_type is shipping_line</p>
   <form method="POST">
     {% csrf_token %}
-    {{form.as_p}}
-
-
-    <input type="submit" name="" value="Create  ">
+    <div class="row">
+      <div class="pr-create-basic-info--background-color pr-create-basic-info col s5">
+        <div class="form-wrap">
+          <label for="">starts</label>
+          {{form.starts_at  }}
+        </div>
+        <div class="form-wrap">
+          <label for="">ends_at</label>
+          {{form.ends_at }}
+        </div>
+        <div class="form-wrap">
+          <label for="">title</label>
+          {{form.title}}
+        </div>
+        <div class="form-wrap">
+          <label for="">target_type</label>
+          {{form.target_type}}
+        </div>
+        <div class="form-wrap">
+          <label for="">target_selection</label>
+          {{form.target_selection}}
+        </div>
+        <div class="form-wrap">
+          <label for="">allocation_method</label>
+          {{form.allocation_method}}
+        </div>
+        <div class="form-wrap">
+          <label for="">value_type</label>
+          {{form.value_type}}
+        </div>
+        <div class="form-wrap">
+          <label for="">value</label>
+          {{form.value}}
+        </div>
+        <div class="form-wrap">
+          <label for="">once_per_customer</label>
+          {{form.once_per_customer}}
+        </div>
+        <div class="form-wrap">
+          <label for="">usage_limit</label>
+          {{form.usage_limit}}
+        </div>
+        <div class="form-wrap">
+          <label for="">customer_selection</label>
+          {{form.customer_selection}}
+        </div>
+        <input class="btn" type="submit" name="" value="Create">
+      </div>
+      <div class="pr-create-basic-info--background-color pr-create-basic-info col s6 offset-s1">
+        <div class="form-wrap pr-create-variant-ids">
+          <label for="">entitled_variant_ids</label>
+          {{form.entitled_variant_ids}}
+        </div>
+      </div>
+    </div>
   </form>
+  <script type="text/javascript">
+    $('input[name="entitled_variant_ids"]').each(function(){
+        var that = $(this)
+        that.insertBefore(that.closest('label'))
+    })
+    $('select').each(function(){
+      var that = $(this);
+      that.siblings('label').remove();
+      that.closest('p').addClass('input-field');
+
+    })
+  </script>
 {% endblock%}
 {# <div class="form-wrap">
   <label for="">title</label>

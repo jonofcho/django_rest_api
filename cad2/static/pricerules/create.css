@@ -1,0 +1,7 @@
+.pr-create-variant-ids label , .pr-create-variant-ids #id_entitled_variant_ids{
+  width: 200px;
+  margin: 0 auto;
+}
+.pr-create-basic-info--background-color{
+  background-color: #f6f6f6;
+}

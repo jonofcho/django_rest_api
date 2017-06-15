@@ -13,8 +13,8 @@ class PriceRule(object):
     # prerequisite_subtotal_range =  'null'
     # prerequisite_shipping_price_range =  'null'
     # prerequisite_saved_search_ids =  []
-    entitled_product_ids =  []
-    # entitled_variant_ids =  []
+    # entitled_product_ids =  []
+    entitled_variant_ids =  []
     # entitled_collection_ids =  []
     # entitled_country_ids =  []
     starts_at =  ''
@@ -30,5 +30,6 @@ class PriceRule(object):
         self.once_per_customer = post['once_per_customer']
         self.usage_limit = post['usage_limit']
         self.customer_selection = post['customer_selection']
+        self.entitled_variant_ids = post['entitled_variant_ids']
         self.starts_at = post['starts_at'].isoformat()
         self.ends_at = post['ends_at'].isoformat()

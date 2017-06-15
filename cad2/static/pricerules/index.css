@@ -1,0 +1,13 @@
+.pr-index-item--border{
+  border: 1px solid black;
+}
+.pr-index-item-update{
+  background-color: orange;
+
+}
+.pr-index-item-delete{
+  background-color: red;
+}
+.pr-index-item-variants{
+  background-color: pink;
+}

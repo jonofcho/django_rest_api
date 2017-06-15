@@ -1,16 +1,35 @@
 {% extends 'base.html' %}
-Youre in INDEX
+
+{% load static %}
 {% block content %}
-  {% for price_rule in price_rule_list.price_rules %}
-  <ul>
-      <li><a href="{% url 'discounts:detail' price_rule.id %}">{{ price_rule.title}}</a></li>
-      <li>{{ price_rule.id }}</li>
-      <li><a href="{% url 'pricerules:update' price_rule.id %}">Update This Price Rule</a></li>
-      <li><a href="{% url 'pricerules:delete' price_rule.id %}">Delete Price Rule</a></li>
-  </ul>
-  {% endfor %}
+<link rel="stylesheet" type="text/css" href="{% static 'pricerules/index.css' %}" />
 
-  <a href="{% url 'pricerules:create' %}">Create New Price Rule</a>
-
+  <div class="pr-index-item pr-index-item--border">
+    <table>
+      <tr>
+        <th><p>Price Rule Title</p></th>
+        <th><p>Price Rule ID</p></th>
+        <th><p>Price Rule Value Type</p></th>
+        <th><p>Price Rule Value</p></th>
+        <th><p>Price Rule Entitled Variants</p></th>
+        <th><p>Price Rule Controls</p></th>
+      </tr>
+      {% for price_rule in price_rule_list.price_rules %}
+        <tr>
+          <td class=""><a href="{% url 'discounts:detail' price_rule.id %}">{{ price_rule.title}}</a></td>
+          <td class="">{{ price_rule.id }}</td>
+          <td class="">{{ price_rule.value_type }}</td>
+          <td class="">{{ price_rule.value }}</td>
+          <td><div class="waves-effect waves-light btn pr-index-item-variants js-pr-index-item-variants" data-variants='{{ price_rule.entitled_variant_ids }}'>Variants List</div></td>
+          <td class="">
+            <a href="{% url 'pricerules:delete' price_rule.id %}" class="waves-effect waves-light btn pr-index-item-delete js-pr-index-item-delete">Delete</a>
+            <a href="{% url 'pricerules:update' price_rule.id %}" class="waves-effect waves-light btn pr-index-item-update">Edit</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <h6><a href="{% url 'pricerules:create' %}" class="waves-effect waves-light btn pr-index-item-create">Create New Price Rule</a></h6>
   {{success}}
+
 {% endblock %}
