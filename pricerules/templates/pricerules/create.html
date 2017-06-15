@@ -4,55 +4,53 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'pricerules/create.css' %}" />
 
-  Create a new Price Rule
-  Currently, if target_type is shipping_line, then only each is accepted.
-  <p>Prerequisite shipping cost range. Can only be used when target_type is shipping_line</p>
   <form method="POST">
     {% csrf_token %}
     <div class="row">
       <div class="pr-create-basic-info--background-color pr-create-basic-info col s5">
         <div class="form-wrap">
-          <label for="">starts</label>
+          <label for="">Starting Time</label>
           {{form.starts_at  }}
         </div>
         <div class="form-wrap">
-          <label for="">ends_at</label>
+          <label for="">Ending Time</label>
           {{form.ends_at }}
         </div>
         <div class="form-wrap">
-          <label for="">title</label>
+          <label for="">Price Rule Title</label>
           {{form.title}}
         </div>
         <div class="form-wrap">
-          <label for="">target_type</label>
+          <p class="pr-create-form-input-disclaimer">Target Type(The target type the price rule applies to.)</p>
           {{form.target_type}}
         </div>
         <div class="form-wrap">
-          <label for="">target_selection</label>
+          <p class="pr-create-form-input-disclaimer">Target Selection(The target selection method of the price rule. Use all to apply the discount to all line items in the checkout and use entitled to apply to selected entitlements.)</p>
           {{form.target_selection}}
         </div>
         <div class="form-wrap">
-          <label for="">allocation_method</label>
+          <p class="pr-create-form-input-disclaimer">Allocation Method(With an allocation method of each, the discount will be applied to each of the entitled items. <br> With an allocation method of across, the calculated discount amount will be applied across the entitled items <span class="text-red">Currently, if target_type is shipping_line, then only each is accepted.</span>)</p>
           {{form.allocation_method}}
         </div>
         <div class="form-wrap">
-          <label for="">value_type</label>
+          <p class="pr-create-form-input-disclaimer">Value Type(The value type of the price rule. <span class="text-red">If target_type is shipping_line then only percentage is accepted.</span>)</p>
           {{form.value_type}}
         </div>
         <div class="form-wrap">
-          <label for="">value</label>
+          <label for="">Value(The value of the price rule. <span class="text-red">If target_type is shipping_line, then only -100 is accepted. It's important to note that when discounting a resource, the value must be a negative number.</span>)</label>
           {{form.value}}
         </div>
         <div class="form-wrap">
-          <label for="">once_per_customer</label>
+          <p class="pr-create-form-input-disclaimer">Once Per Customer?</p>
           {{form.once_per_customer}}
         </div>
         <div class="form-wrap">
-          <label for="">usage_limit</label>
+          <label for="">Usage Limit</label>
           {{form.usage_limit}}
         </div>
         <div class="form-wrap">
-          <label for="">customer_selection</label>
+          <p class="pr-create-form-input-disclaimer">Customer Selection(The customer selection for the price rule. <span class="text-red">A customer selection of all means there are no restrictions on who's eligible for the price rule.
+A customer selection of prerequisite means a customer needs to belong to one of the specified prerequisite customer saved searches in prerequisite_saved_search_ids.</span>)</p>
           {{form.customer_selection}}
         </div>
         <input class="btn" type="submit" name="" value="Create">
